@@ -7,4 +7,9 @@ class ApplicationController < Sinatra::Base
     series.to_json
   end
 
+get "/games" do
+  games = Game.all
+  games.to_json
+end
+
 end
