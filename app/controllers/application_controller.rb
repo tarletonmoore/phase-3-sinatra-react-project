@@ -4,12 +4,14 @@ class ApplicationController < Sinatra::Base
   # Add your routes here
   get "/series" do
     series = Series.all
-    series.to_json
+    series.to_json(include: :games)
   end
 
 get "/games" do
   games = Game.all
   games.to_json
 end
+
+
 
 end
