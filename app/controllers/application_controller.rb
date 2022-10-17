@@ -40,6 +40,12 @@ game = Game.create(
 game.to_json
 end
 
-
+patch "/games/:id" do
+  game = Game.find(params[:id])
+  game.update(
+    title: params[:title]
+  )
+  game.to_json
+end
 
 end
