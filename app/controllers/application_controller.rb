@@ -48,4 +48,10 @@ patch "/games/:id" do
   game.to_json
 end
 
+delete "/games/:id" do
+game = Game.find(params[:id])
+game.destroy
+game.to_json
+end
+
 end
