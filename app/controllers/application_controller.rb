@@ -8,7 +8,16 @@ class ApplicationController < Sinatra::Base
     series.to_json
   end
 
+  get "/series/:id" do
+series = Series.find(params[:id])
+series.to_json(include: :games)
 
+  end
+
+get "/games/:id" do
+  game = Game.find(params[:id])
+  game.to_json
+end
   
   get "/series/games" do
     series = Series.all
@@ -18,6 +27,17 @@ class ApplicationController < Sinatra::Base
 get "/games" do
   games = Game.all
   games.to_json
+end
+
+post "/games" do
+game = Game.create(
+  title: params[:title],
+  main_character: params[:main_character],
+  year_released: params[:year_released],
+  console: params[:console],
+  series_id: params[:series_id]
+)
+game.to_json
 end
 
 
