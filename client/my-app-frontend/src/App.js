@@ -2,17 +2,18 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import GameList from './GameList';
 import NewGame from './NewGame';
-import Search from './Search'
+// import Search from './Search'
 
 function App() {
   const [games, setGames] = useState([])
-  const [search, setSearch] = ("")
+  // const [search, setSearch] = ("")
 
   useEffect(() => {
     fetch("http://localhost:9292/games")
       .then((r) => r.json())
       .then((games) => setGames(games));
   }, []);
+
 
   function handleAddGame(newGame) {
     setGames([...games, newGame]);
@@ -35,7 +36,9 @@ function App() {
   }
 
   const displayedGames = games.filter((game) =>
-    game.body.toUpperCase().includes(search.toUpperCase())
+    game
+    // .toLowerCase()
+    // .includes(search.toLowerCase())
   );
 
   return (
@@ -55,10 +58,10 @@ function App() {
         </a> */}
         <h1>Nintendo Series</h1>
       </header>
-      <Search
+      {/* <Search
         search={search}
         setSearch={setSearch}
-      />
+      /> */}
       <GameList
         games={displayedGames}
         onDeleteGame={handleDeleteGame}

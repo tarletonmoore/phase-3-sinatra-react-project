@@ -26,7 +26,7 @@ end
 
 get "/games" do
   games = Game.all
-  games.to_json
+  games.to_json(include: :series)
 end
 
 post "/games" do

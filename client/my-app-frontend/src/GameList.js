@@ -4,6 +4,7 @@ import Game from "./Game"
 function GameList({ games, onDeleteGame, onUpdateGame }) {
 
 
+
     return (
         <div className="list">
             <ul>

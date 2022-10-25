@@ -1,16 +1,17 @@
-import React, { useState } from "react"
+import React from "react"
 
 
 
 
 function Game({ game, onDeleteGame, onUpdateGame }) {
 
-    function handleDeleteGame() {
-        fetch(`http://localhost:9292/games/${id}`, {
+    function handleDeleteClick() {
+
+        fetch(`http://localhost:9292/games/:id`, {
             method: "DELETE",
         });
 
-        onDeleteGame(id);
+        onDeleteGame(game.id);
 
 
     }
@@ -18,9 +19,13 @@ function Game({ game, onDeleteGame, onUpdateGame }) {
 
     return (
         <div>
-
-            <button onClick={handleDeleteGame}></button>
-
+            <p>Series: {game.series.title}</p>
+            <p>Game: {game.title}</p>
+            <p>Character: {game.main_character}</p>
+            <p>Year Of Release: {game.year_released}</p>
+            <p>Console: {game.console}</p>
+            <button onClick={handleDeleteClick}>Delete</button>
+            {/* <button onClick={ }>Update</button> */}
 
 
 
