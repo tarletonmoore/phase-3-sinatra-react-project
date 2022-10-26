@@ -69,6 +69,7 @@ function App() {
       />
       <NewGame
         onAddGame={handleAddGame}
+        game={games}
       />
     </div>
   );

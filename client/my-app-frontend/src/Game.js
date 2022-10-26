@@ -5,13 +5,16 @@ import React from "react"
 
 function Game({ game, onDeleteGame, onUpdateGame }) {
 
+    const { id, title, main_character, year_released, console } = game
+
+
     function handleDeleteClick() {
 
-        fetch(`http://localhost:9292/games/:id`, {
+        fetch(`http://localhost:9292/games/${id}`, {
             method: "DELETE",
         });
 
-        onDeleteGame(game.id);
+        onDeleteGame(id);
 
 
     }
