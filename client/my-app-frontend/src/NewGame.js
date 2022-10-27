@@ -17,6 +17,7 @@ function NewGame({ game, onAddGame }) {
             ...addGame,
             [event.target.name]: event.target.value,
         });
+        // console.log(addGame)
     }
     // console.log(game)
     // console.log(game.series)
@@ -33,6 +34,7 @@ function NewGame({ game, onAddGame }) {
 
         // }
         // console.log('new Game Info', newGameInfo)
+        console.log('Add game:', addGame)
         fetch("http://localhost:9292/games", {
             method: "POST",
             headers: {
@@ -42,17 +44,18 @@ function NewGame({ game, onAddGame }) {
                 // newGameInfo),
                 {
                     // series: game.series.title,
-                    title: game.title,
-                    character: game.main_character,
-                    year: game.year_released,
-                    console: game.console,
-                    series_id: game.series_id
+                    title: addGame.title,
+                    main_character: addGame.character,
+                    year_released: addGame.year,
+                    console: addGame.console,
+                    series_id: addGame.series_id
 
                 }
             ),
         })
             .then((r) => r.json())
             .then((newGame) => {
+                console.log('New Game:', newGame)
                 onAddGame(newGame);
                 setAddGame(
                     {
