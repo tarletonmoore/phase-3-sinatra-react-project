@@ -4,7 +4,6 @@ import React, { useState } from "react"
 function NewGame({ game, onAddGame }) {
 
     const [addGame, setAddGame] = useState({
-        // series: "",
         title: "",
         character: "",
         year: "",
@@ -17,33 +16,19 @@ function NewGame({ game, onAddGame }) {
             ...addGame,
             [event.target.name]: event.target.value,
         });
-        // console.log(addGame)
     }
-    // console.log(game)
-    // console.log(game.series)
+
 
     function handleSubmit(e) {
         e.preventDefault()
-        // const newGameInfo = {
-        //     // "series": game.series.title,
-        //     "title": game.title,
-        //     "character": game.main_character,
-        //     "year": game.year_released,
-        //     "console": game.console,
-        //     "series_id": game.series_id
 
-        // }
-        // console.log('new Game Info', newGameInfo)
-        console.log('Add game:', addGame)
         fetch("http://localhost:9292/games", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(
-                // newGameInfo),
                 {
-                    // series: game.series.title,
                     title: addGame.title,
                     main_character: addGame.character,
                     year_released: addGame.year,
@@ -54,12 +39,10 @@ function NewGame({ game, onAddGame }) {
             ),
         })
             .then((r) => r.json())
-            .then((newGame) => {
-                console.log('New Game:', newGame)
-                onAddGame(newGame);
+            .then((data) => {
+                onAddGame(data);
                 setAddGame(
                     {
-                        // series: "",
                         title: "",
                         character: "",
                         year: "",
@@ -74,15 +57,7 @@ function NewGame({ game, onAddGame }) {
         <section>
             <h1>Add Game</h1>
             <form onSubmit={handleSubmit}>
-                {/* <label>
-                    Series:
-                    <input
-                        type="text"
-                        name="series"
-                        value={addGame.series}
-                        onChange={handleChange}
-                    />
-                </label> */}
+
                 <label>
                     Game:
                     <input

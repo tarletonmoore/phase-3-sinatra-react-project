@@ -5,7 +5,7 @@ import React from "react"
 
 function Game({ game, onDeleteGame, onUpdateGame }) {
 
-    const { id, title, main_character, year_released, console } = game
+    const { id, title, main_character, year_released } = game
 
 
     function handleDeleteClick() {
@@ -28,7 +28,7 @@ function Game({ game, onDeleteGame, onUpdateGame }) {
             <p>Year Of Release: {game.year_released}</p>
             <p>Console: {game.console}</p>
             <button onClick={handleDeleteClick}>Delete</button>
-            {/* <button onClick={ }>Update</button> */}
+            {/* <button onClick={ }>Update</button>*/}
 
 
 

@@ -16,6 +16,7 @@ function App() {
 
 
   function handleAddGame(newGame) {
+
     setGames([...games, newGame]);
   }
 
@@ -63,7 +64,8 @@ function App() {
         setSearch={setSearch}
       /> */}
       <GameList
-        games={displayedGames}
+        games={games}
+        // was displayed games
         onDeleteGame={handleDeleteGame}
         onUpdateGame={handleUpdateGame}
       />

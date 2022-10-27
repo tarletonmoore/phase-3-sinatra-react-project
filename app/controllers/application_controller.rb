@@ -40,7 +40,7 @@ game = Game.create(
 # game.series.create(
 #   title: params[:series]
 # )
-game.to_json
+game.to_json(include: :series)
 end
 
 patch "/games/:id" do
