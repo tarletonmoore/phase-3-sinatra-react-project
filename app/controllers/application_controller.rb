@@ -48,7 +48,7 @@ patch "/games/:id" do
   game.update(
     title: params[:title]
   )
-  game.to_json
+  game.to_json(include: :series)
 end
 
 delete "/games/:id" do

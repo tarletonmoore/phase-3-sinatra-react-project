@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
+// import EditGame from './EditGame';
 import GameList from './GameList';
 import NewGame from './NewGame';
 // import Search from './Search'
@@ -73,6 +74,10 @@ function App() {
         onAddGame={handleAddGame}
         game={games}
       />
+      {/* <EditGame
+        games={games}
+        onUpdateGame={handleUpdateGame}
+      /> */}
     </div>
   );
 }

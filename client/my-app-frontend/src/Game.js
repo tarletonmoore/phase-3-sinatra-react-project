@@ -1,12 +1,12 @@
-import React from "react"
-
+import React, { useState } from "react"
+import EditGame from "./EditGame";
 
 
 
 function Game({ game, onDeleteGame, onUpdateGame }) {
 
     const { id, title, main_character, year_released } = game
-
+    const { updating, setUpdating } = useState(false)
 
     function handleDeleteClick() {
 
@@ -18,7 +18,10 @@ function Game({ game, onDeleteGame, onUpdateGame }) {
 
 
     }
-
+    // function handleUpdateGame(updatedGame) {
+    //     setUpdating(false);
+    //     onUpdateGame(updatedGame);
+    // }
 
     return (
         <div>
@@ -28,7 +31,17 @@ function Game({ game, onDeleteGame, onUpdateGame }) {
             <p>Year Of Release: {game.year_released}</p>
             <p>Console: {game.console}</p>
             <button onClick={handleDeleteClick}>Delete</button>
-            {/* <button onClick={ }>Update</button>*/}
+            {/* {updating ? ( */}
+            <EditGame
+                id={id}
+                title={title}
+                onUpdateGame={onUpdateGame}
+            />
+            {/* // ) : (
+            //     <p>{title}</p>
+            // )} */}
+            {/* <button onClick={onUpdateGame}>Update</button> */}
+
 
 
 
