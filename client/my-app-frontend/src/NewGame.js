@@ -18,50 +18,54 @@ function NewGame({ game, onAddGame }) {
             [event.target.name]: event.target.value,
         });
     }
-    console.log(game)
+    // console.log(game)
     // console.log(game.series)
 
     function handleSubmit(e) {
         e.preventDefault()
-        const newGameInfo = {
-            // "series": game.series.title,
-            "title": game.title,
-            "character": game.main_character,
-            "year": game.year_released,
-            "console": game.console,
-            "series_id": game.series_id
+        // const newGameInfo = {
+        //     // "series": game.series.title,
+        //     "title": game.title,
+        //     "character": game.main_character,
+        //     "year": game.year_released,
+        //     "console": game.console,
+        //     "series_id": game.series_id
 
-        }
-
+        // }
+        // console.log('new Game Info', newGameInfo)
         fetch("http://localhost:9292/games", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(newGameInfo),
-            // {
-            //     "series": game.series.title,
-            //     "title": game.title,
-            //     "character": game.main_character,
-            //     "year": game.year_released,
-            //     "console": game.console
+            body: JSON.stringify(
+                // newGameInfo),
+                {
+                    // series: game.series.title,
+                    title: game.title,
+                    character: game.main_character,
+                    year: game.year_released,
+                    console: game.console,
+                    series_id: game.series_id
 
-
-            // }
-            // ),
+                }
+            ),
         })
             .then((r) => r.json())
             .then((newGame) => {
                 onAddGame(newGame);
-                setAddGame({
-                    // series: "",
-                    title: "",
-                    character: "",
-                    year: "",
-                    console: "",
-                    series_id: ""
-                });
+                setAddGame(
+                    {
+                        // series: "",
+                        title: "",
+                        character: "",
+                        year: "",
+                        console: "",
+                        series_id: ""
+                    }
+                );
             });
+
     }
     return (
         <section>
@@ -122,7 +126,7 @@ function NewGame({ game, onAddGame }) {
                     Series id:
                     <input
                         type="number"
-                        name="series"
+                        name="series_id"
                         value={addGame.series_id}
                         onChange={handleChange}
                     />
