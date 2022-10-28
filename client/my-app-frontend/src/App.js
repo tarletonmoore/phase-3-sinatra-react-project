@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
+import NavBar from './NavBar';
 // import EditGame from './EditGame';
+import { Route, Routes } from 'react-router-dom';
 import GameList from './GameList';
 import NewGame from './NewGame';
 // import Search from './Search'
@@ -46,38 +48,29 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        {/* <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p> */}
-        {/* <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a> */}
-        <h1>Nintendo Series</h1>
+
+        <h1>Nintendo Games</h1>
       </header>
-      {/* <Search
-        search={search}
-        setSearch={setSearch}
-      /> */}
-      <GameList
-        games={games}
-        // was displayed games
-        onDeleteGame={handleDeleteGame}
-        onUpdateGame={handleUpdateGame}
-      />
-      <NewGame
-        onAddGame={handleAddGame}
-        game={games}
-      />
-      {/* <EditGame
-        games={games}
-        onUpdateGame={handleUpdateGame}
-      /> */}
+
+      <NavBar />
+      <Routes>
+
+        <Route path="/games"
+          element={<GameList
+            games={games}
+            // was displayed games
+            onDeleteGame={handleDeleteGame}
+            onUpdateGame={handleUpdateGame}
+          />}>
+        </Route>
+        <Route path="/add"
+          element={<NewGame
+            onAddGame={handleAddGame}
+            game={games}
+          />}>
+
+        </Route>
+      </Routes>
     </div>
   );
 }
