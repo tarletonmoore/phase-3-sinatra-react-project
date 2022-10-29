@@ -36,11 +36,6 @@ series id of 1 is Pokemon
 series id of 2 is Legend of Zelda
 series id of 3 is Super Mario
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### Code Splitting
 
