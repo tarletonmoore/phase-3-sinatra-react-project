@@ -32,6 +32,9 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ### `The application`
 This application will allow you to add games and their associated series as well as change the title of any game.
 It is important to note that when adding a game the series id is either 1,2, or 3.
+series id of 1 is Pokemon
+series id of 2 is Legend of Zelda
+series id of 3 is Super Mario
 
 ## Learn More
 
