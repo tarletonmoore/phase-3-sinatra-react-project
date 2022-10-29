@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import NavBar from './NavBar';
-// import EditGame from './EditGame';
 import { Route, Routes } from 'react-router-dom';
 import GameList from './GameList';
 import NewGame from './NewGame';
-// import Search from './Search'
+
 
 function App() {
   const [games, setGames] = useState([])
-  // const [search, setSearch] = ("")
+
 
   useEffect(() => {
     fetch("http://localhost:9292/games")
