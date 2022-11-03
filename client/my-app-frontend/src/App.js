@@ -4,11 +4,12 @@ import NavBar from './NavBar';
 import { Route, Routes } from 'react-router-dom';
 import GameList from './GameList';
 import NewGame from './NewGame';
+import NewSeries from './NewSeries';
 
 
 function App() {
   const [games, setGames] = useState([])
-
+  const [series, setSeries] = useState([])
 
   useEffect(() => {
     fetch("http://localhost:9292/games")
@@ -16,10 +17,19 @@ function App() {
       .then((games) => setGames(games));
   }, []);
 
+  useEffect(() => {
+    fetch("http://localhost:9292/series")
+      .then((r) => r.json())
+      .then((series) => setSeries(series));
+  }, []);
 
   function handleAddGame(newGame) {
 
     setGames([...games, newGame]);
+  }
+
+  function handleAddSeries(newSeries) {
+    setSeries([...series, newSeries])
   }
 
   function handleDeleteGame(id) {
@@ -68,6 +78,12 @@ function App() {
             game={games}
           />}>
 
+        </Route>
+        <Route path="/addseries"
+          element={<NewSeries
+            onAddSeries={handleAddSeries}
+            series={series}
+          />}>
         </Route>
       </Routes>
     </div>

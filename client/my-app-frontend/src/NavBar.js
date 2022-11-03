@@ -24,6 +24,12 @@ function NavBar() {
             >
                 Add Game
             </NavLink>
+            <NavLink
+                to="/addseries"
+                style={linkStyles}
+            >
+                Add Series
+            </NavLink>
         </div>
     )
 

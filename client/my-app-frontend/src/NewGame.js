@@ -4,11 +4,11 @@ import React, { useState } from "react"
 function NewGame({ game, onAddGame }) {
 
     const [addGame, setAddGame] = useState({
-        title: "",
+        game_title: "",
         character: "",
         year: "",
         console: "",
-        series_id: ""
+        series_title: ""
     })
 
     function handleChange(event) {
@@ -29,11 +29,11 @@ function NewGame({ game, onAddGame }) {
             },
             body: JSON.stringify(
                 {
-                    title: addGame.title,
+                    game_title: addGame.game_title,
                     main_character: addGame.character,
                     year_released: addGame.year,
                     console: addGame.console,
-                    series_id: addGame.series_id
+                    series_title: addGame.series_title
 
                 }
             ),
@@ -62,8 +62,8 @@ function NewGame({ game, onAddGame }) {
                     Game:
                     <input
                         type="text"
-                        name="title"
-                        value={addGame.title}
+                        name="game_title"
+                        value={addGame.game_title}
                         onChange={handleChange}
                     />
                 </label>
@@ -101,11 +101,11 @@ function NewGame({ game, onAddGame }) {
                 </label>
 
                 <label>
-                    Series id:
+                    Series Title:
                     <input
-                        type="number"
-                        name="series_id"
-                        value={addGame.series_id}
+                        type="text"
+                        name="series_title"
+                        value={addGame.series_title}
                         onChange={handleChange}
                     />
                 </label>

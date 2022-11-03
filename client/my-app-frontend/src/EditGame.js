@@ -23,12 +23,14 @@ function EditGame({ games, onUpdateGame, title, id }) {
 
     return (
         <form onSubmit={handleFormSubmit}>
+            <p>Change Name</p>
             <input
                 type="text"
                 name="title"
                 value={gameTitle}
                 onChange={(e) => setGameTitle(e.target.value)}
             />
+
             <input type="submit" value="Save" />
         </form>
     );
