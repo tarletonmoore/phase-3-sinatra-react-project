@@ -1,5 +1,15 @@
 # Phase 3 Project Guidelines
 
+## To Start App
+1. bundle install
+2. rake db:migrate
+3. rake db:seed
+4. rake server
+Open up new tab in terminal
+1. npm install --prefix client/my-app-frontend
+2. npm start --prefix client/my-app-frontend
+
+
 ## Learning Goals
 
 - Build a web basic API with Sinatra and Active Record to support a React
