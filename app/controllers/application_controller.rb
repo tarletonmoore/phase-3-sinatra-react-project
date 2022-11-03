@@ -21,7 +21,10 @@ post "/games" do
   series = Series.find_by(title: params[:series_title])
 
   # add new game to series
-  game = series.games.create(title: params[:game_title])
+  game = series.games.create(title: params[:game_title],
+    main_character: params[:main_character],
+      year_released: params[:year_released],
+      console: params[:console])
 
   # return new game and series
   # game = Game.create(
